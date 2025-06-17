@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "e0dd6f71-d4cd-4433-8ce3-5454a7aebf2f",
+		"_postman_id": "65a43920-d71f-4d6f-a421-affca6b5a327",
 		"name": "API Testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16825267",
-		"_collection_link": "https://interstellar-crater-618961.postman.co/workspace/CNATSMar2025~e17f73b9-ed76-4ce3-aaec-49c4f72568d3/collection/16825267-e0dd6f71-d4cd-4433-8ce3-5454a7aebf2f?action=share&source=collection_link&creator=16825267"
+		"_collection_link": "https://interstellar-crater-618961.postman.co/workspace/CNATSJun2025~0a0147b3-3490-4115-ad59-426a16d21ddd/collection/16825267-65a43920-d71f-4d6f-a421-affca6b5a327?action=share&source=collection_link&creator=16825267"
 	},
 	"item": [
 		{
@@ -17,122 +17,7 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://reqres.in/api/users/5",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users",
-						"5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST Req",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"data\": {\r\n        \"email\": \"smitha@test.in\",\r\n        \"first_name\": \"Smitha\",\r\n        \"last_name\": \"Menon\"\r\n    }\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://reqres.in/api/users",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lambda",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"pm.test(\"Body contains profession\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"profession\");\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://w6pefzpw41.execute-api.ap-south-1.amazonaws.com/test/cnatsres?first_name=Bhagwath&last_name=Pradeep",
-					"protocol": "https",
-					"host": [
-						"w6pefzpw41",
-						"execute-api",
-						"ap-south-1",
-						"amazonaws",
-						"com"
-					],
-					"path": [
-						"test",
-						"cnatsres"
-					],
-					"query": [
-						{
-							"key": "first_name",
-							"value": "Bhagwath"
-						},
-						{
-							"key": "last_name",
-							"value": "Pradeep"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Req",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
+							"\r",
 							"\r",
 							"pm.test(\"Body matches string\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Mirror\");\r",
@@ -143,10 +28,11 @@
 							"    pm.expect(jsonData.id).to.eql(15);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Check last name\", function () {\r",
+							"pm.test(\"Check title\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.brand).to.eql(\"Bath Trends\");\r",
+							"    pm.expect(jsonData.title).to.eql(\"Wooden Bathroom Sink With Mirror\");\r",
 							"});\r",
+							"\r",
 							"pm.test(\"Content-Type is present\", function () {\r",
 							"    pm.response.to.have.header(\"Content-Type\");\r",
 							"});\r",
@@ -164,7 +50,8 @@
 							"\r",
 							"pm.test(\"At least one review comment contains the word 'Pleased'\", function () {\r",
 							"    pm.expect(hasPleasedComment).to.be.true;\r",
-							"});"
+							"});\r",
+							""
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -184,6 +71,32 @@
 					"path": [
 						"products",
 						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dummyjson.com/products/search?q=phone",
+					"protocol": "https",
+					"host": [
+						"dummyjson",
+						"com"
+					],
+					"path": [
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "phone"
+						}
 					]
 				}
 			},
@@ -211,7 +124,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"My own product\",\r\n    \"description\": \"This is the description of my product.\",\r\n    \"category\": \"furniture\",\r\n    \"price\": 4.99,\r\n    \"discountPercentage\": 9.33,\r\n    \"rating\": 5.0\r\n}",
+					"raw": "{\r\n    \"title\": \"Smitha's own product\",\r\n    \"description\": \"This is the description of my product.\",\r\n    \"category\": \"furniture\",\r\n    \"price\": 4.99,\r\n    \"discountPercentage\": 9.33,\r\n    \"rating\": 5.0\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -240,7 +153,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Smitha Product\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Smitha Product\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,30 +177,9 @@
 		},
 		{
 			"name": "DELETE Req",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "https://dummyjson.com/products/20",
 					"protocol": "https",
