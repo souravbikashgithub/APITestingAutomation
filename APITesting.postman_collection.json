@@ -56,7 +56,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://dummyjson.com/products/15",
+					"raw": "https://dummyjson.com/products/20",
 					"protocol": "https",
 					"host": [
 						"dummyjson",
