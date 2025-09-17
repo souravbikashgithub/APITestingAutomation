@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "65a43920-d71f-4d6f-a421-affca6b5a327",
-		"name": "API Testing",
+		"_postman_id": "f99b2207-a305-48e4-bd6a-948d0cb8728e",
+		"name": "APITesting",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16825267",
-		"_collection_link": "https://interstellar-crater-618961.postman.co/workspace/CNATSJun2025~0a0147b3-3490-4115-ad59-426a16d21ddd/collection/16825267-65a43920-d71f-4d6f-a421-affca6b5a327?action=share&source=collection_link&creator=16825267"
+		"_exporter_id": "1467756",
+		"_collection_link": "https://galactic-zodiac-495810.postman.co/workspace/CNATSSep2025~e8e6825a-172f-43c6-be87-e9069ef3e06a/collection/1467756-f99b2207-a305-48e4-bd6a-948d0cb8728e?action=share&source=collection_link&creator=1467756"
 	},
 	"item": [
 		{
-			"name": "GET Req",
+			"name": "Prod20",
 			"event": [
 				{
 					"listen": "test",
@@ -18,19 +18,13 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"\r",
 							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"Miror\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Mirror\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Check JSON Data\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.id).to.eql(15);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check title\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.title).to.eql(\"Wooden Bathroom Sink With Mirror\");\r",
 							"});\r",
 							"\r",
 							"pm.test(\"Content-Type is present\", function () {\r",
@@ -40,9 +34,9 @@
 							"let jsonData = pm.response.json();\r",
 							"// Check if any review has rating 5\r",
 							"let hasFiveStar = jsonData.reviews.some(review => review.rating === 5);\r",
-							"\r",
+							"// Check if any review has rating 5\r",
 							"let hasPleasedComment = jsonData.reviews.some(review =>\r",
-							"    review.comment.toLowerCase().includes(\"Pleased\"));\r",
+							"    review.comment.toLowerCase().includes(\"pleased\"));\r",
 							"\r",
 							"pm.test(\"At least one review has a rating of 5\", function () {\r",
 							"    pm.expect(hasFiveStar).to.be.true;\r",
@@ -77,7 +71,7 @@
 			"response": []
 		},
 		{
-			"name": "GET 2",
+			"name": "ProdSearch",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -103,28 +97,13 @@
 			"response": []
 		},
 		{
-			"name": "POST Req",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Successful POST request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {}
-					}
-				}
-			],
+			"name": "AddProd",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Smitha's own product\",\r\n    \"description\": \"This is the description of my product.\",\r\n    \"category\": \"furniture\",\r\n    \"price\": 4.99,\r\n    \"discountPercentage\": 9.33,\r\n    \"rating\": 5.0\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"My own product\",\r\n    \"description\": \"This is the description of my product.\",\r\n    \"category\": \"furniture\",\r\n    \"price\": 4.99,\r\n    \"discountPercentage\": 9.33,\r\n    \"rating\": 5.0\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,7 +126,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT Req",
+			"name": "PutReq",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -176,10 +155,14 @@
 			"response": []
 		},
 		{
-			"name": "DELETE Req",
+			"name": "DelRec",
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Smitha Product\"\r\n}\r\n"
+				},
 				"url": {
 					"raw": "https://dummyjson.com/products/20",
 					"protocol": "https",
